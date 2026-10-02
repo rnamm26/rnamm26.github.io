@@ -492,25 +492,50 @@ Brand Identity Logo Design
 
 
 
- <form action="https://script.google.com/macros/s/AKfycbzK2HoL1ZMprUVhNgFbaOOCg0mbOoKamZeQ0jCDi659_6yU3EreJUPKJSsU6gQDdgQ3tg/exec" method="GET">
+<form name="Contac for my portofolio">
 
   <div class="mb-3">
-    <input type="text" name="nama" class="form-control" placeholder="Your Name" required>
+    <input
+      type="text"
+      name="nama"
+      class="form-control"
+      placeholder="Your Name"
+      required>
   </div>
 
   <div class="mb-3">
-    <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+    <input
+      type="email"
+      name="email"
+      class="form-control"
+      placeholder="Your Email"
+      required>
   </div>
 
   <div class="mb-3">
-    <textarea name="pesan" class="form-control" rows="7" placeholder="Your Message" required></textarea>
+    <textarea
+      name="pesan"
+      class="form-control"
+      rows="7"
+      placeholder="Your Message"
+      required></textarea>
   </div>
 
   <button type="submit" class="btn btn-gradient w-100">
     Send Message
   </button>
 
-</form>
+                    </form>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
 
 
             <!-- SOCIAL -->
@@ -641,5 +666,24 @@ Brand Identity Logo Design
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const scriptURL = 'https://script.google.com/macros/s/AKfycbzK2HoL1ZMprUVhNgFbaOOCg0mbOoKamZeQ0jCDi659_6yU3EreJUPKJSsU6gQDdgQ3tg/exec'
+const form = document.forms['Contac for my portofolio']
+
+form.addEventListener('submit', e => {
+  e.preventDefault()
+
+  fetch(scriptURL, {
+    method: 'POST',
+    mode: 'no-cors',
+    body: new FormData(form)
+  })
+  .then(() => {
+    alert("Pesan terkirim 🔥")
+    form.reset()
+  })
+  .catch(() => alert("Gagal 😭"))
+})
+</script>
 </body>
 </html>
