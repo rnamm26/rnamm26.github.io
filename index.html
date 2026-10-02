@@ -490,7 +490,9 @@ Brand Identity Logo Design
                         Send a Message
                     </h4>
 
-
+<div id="alertBox" class="alert alert-success d-none">
+  Pesan berhasil dikirim 🔥
+</div>
 
 <form name="Contac for my portofolio">
 
@@ -654,8 +656,9 @@ Brand Identity Logo Design
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-const scriptURL = 'https://script.google.com/macros/s/AKfycby_rmf_QmIhx20Guk7TS7LQg6J3EXo8xj3glg8WQ4870Im-hDa98XJno2BthouyEZgaqA/exec'
+const scriptURL = 'https://script.google.com/macros/s/AKfycbzK2HoL1ZMprUVhNgFbaOOCg0mbOoKamZeQ0jCDi659_6yU3EreJUPKJSsU6gQDdgQ3tg/exec'
 const form = document.forms['Contac for my portofolio']
+const alertBox = document.getElementById('alertBox')
 
 form.addEventListener('submit', e => {
   e.preventDefault()
@@ -666,10 +669,13 @@ form.addEventListener('submit', e => {
     body: new FormData(form)
   })
   .then(() => {
-    alert("Pesan terkirim 🔥")
+    alertBox.classList.remove('d-none')
     form.reset()
+
+    setTimeout(() => {
+      alertBox.classList.add('d-none')
+    }, 3000)
   })
-  .catch(() => alert("Gagal 😭"))
 })
 </script>
 </body>
